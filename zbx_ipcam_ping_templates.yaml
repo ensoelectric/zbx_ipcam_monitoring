@@ -1,0 +1,25 @@
+zabbix_export:
+  version: '5.2'
+  date: '2022-05-04T09:15:54Z'
+  groups:
+    -
+      name: ipcam
+  templates:
+    -
+      template: IPCAM_PING
+      name: IPCAM_PING
+      templates:
+        -
+          name: 'ICMP Ping'
+      groups:
+        -
+          name: ipcam
+      macros:
+        -
+          macro: '{$OID}'
+        -
+          macro: '{$SNMP_COMMUNITY}'
+          value: public
+        -
+          macro: '{$SWITCH_IP}'
+          description: 'IP address of the switch to which the camera is connected'
